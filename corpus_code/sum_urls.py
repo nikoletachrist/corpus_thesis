@@ -1,8 +1,7 @@
 import io
 import os
 import re
-from myfunc import text_sorting,read_dicts,inspection,the_catalogue,full_text_list,count_results,sum_texts,compare_entries,add_keys,categories_surfer
-import shutil
+from utilities import inspection
 import json
 
 root='/Users/nic/Desktop/PythonProject'

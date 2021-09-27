@@ -1,7 +1,7 @@
 import io
 import os
 import re
-from functions import final_cut, greek_word,names
+from utilities import final_cut, greek_word,names
 import json
 
 dest='/Users/nic/Desktop/PythonProject/CORPUS'

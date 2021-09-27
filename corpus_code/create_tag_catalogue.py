@@ -1,5 +1,5 @@
 import os
-from functions import check_catalogue,tags,sort_catalogue
+from utilities import check_catalogue,tags,sort_catalogue
 
 root='/Users/nic/Desktop/PythonProject'
 arts = '/Users/nic/Desktop/PythonProject/Arts'
