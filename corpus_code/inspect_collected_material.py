@@ -1,7 +1,7 @@
 import json
 import os
 import io
-from functions import full_text_list,count_results,sum_texts,compare_entries
+from utilities import full_text_list,count_results,sum_texts,compare_entries
 
 root = '/Users/nic/Desktop/PythonProject'
 catal = 'C:/Users/nic/Desktop/PythonProject/categ_analysis'

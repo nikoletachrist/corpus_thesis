@@ -1,7 +1,7 @@
 import re
 import os
 import io
-from functions import extract_urls,inspection,read_dicts,text_sorting,categories_surfer
+from utilities import extract_urls,inspection,read_dicts,text_sorting,categories_surfer
 
 corpus_root = '/Users/nic/Desktop/PythonProject/Geo'
 os.mkdir(corpus_root)

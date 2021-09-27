@@ -1,6 +1,6 @@
 import io
 import os
-from functions import stock, share_samples
+from utilities import stock, share_samples
 import json
 
 
