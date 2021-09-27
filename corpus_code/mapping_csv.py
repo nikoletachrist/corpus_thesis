@@ -1,20 +1,6 @@
-import nltk
 import re
-import pprint
 import os
-from nltk import word_tokenize, sent_tokenize
-from nltk.corpus.reader import wordlist
-import requests
-from bs4 import BeautifulSoup, SoupStrainer
-import random
-import glob
 import io
-import shutil
-from nltk.corpus import PlaintextCorpusReader,CategorizedCorpusReader,CategorizedPlaintextCorpusReader
-from nltk.text import TextCollection
-import json
-from xml.etree.ElementTree import ElementTree 	
-from functions import full_text_list
 
 root='C:/Users/nic/Desktop/PythonProject/CORPUS'
 os.chdir(root)
