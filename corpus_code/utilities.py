@@ -11,8 +11,6 @@ import math
 
 def inspection(object,object_list):
 	for item in object_list:
-		# print("OBJ {}".format(object))
-		# print("ITM {}".format(item))
 		matchobj=re.match(item, object)
 		if matchobj:
 			return 1 
@@ -20,16 +18,13 @@ def inspection(object,object_list):
 
 def extract_urls(father_url, start, end):
 	html = requests.get(father_url)
-	# usefull text
 	startpoint = html.text.find(start)
 	endpoint = html.text.find(end)
 	usefullText = html.text[startpoint:endpoint]
-	# soup it
 	soup = BeautifulSoup(usefullText, 'html.parser')
 	url_list = []
 	only_urls=[]
 	guilty=0
-	# url_list
 	for link in soup.find_all('a'):
 		name = link.get('title')
 		partial_url = link.get('href')
@@ -58,7 +53,6 @@ def categories_surfer(link,archive):
 	fp = io.open('categories.json', 'a+', encoding='utf8')
 	archive.write(category[0]['site'])
 	archive.write('\n')
-	# initialize
 	archive.flush()
 	archive.seek(0)
 	arcraw=archive.read()
@@ -69,7 +63,6 @@ def categories_surfer(link,archive):
 		except:
 			continue
 		act = category[0]['depth']
-		# define usefull part
 		start = html.text.find("id=\"mw-subcategories\"")
 		if start==-1:
 			start=html.text.find("id=\"mw-pages\"")
@@ -78,7 +71,6 @@ def categories_surfer(link,archive):
 			break
 		usefullText = html.text[start:end]
 		soup = BeautifulSoup(usefullText, 'html.parser')
-		# find As
 		for obj in soup.find_all('a'):
 			name = obj.get('title')
 			if name == None:
@@ -88,7 +80,6 @@ def categories_surfer(link,archive):
 			partial_url = obj.get('href')
 			if partial_url == None:
 				continue
-			# find proper urls
 			matchobj = re.match(r'^/wiki/*', partial_url)
 			if matchobj:
 				url = "".join(("https://el.wikipedia.org", partial_url))
@@ -113,7 +104,6 @@ def categories_surfer(link,archive):
 		category.remove(category[0])
 		if len(category)<1:
 			break
-	# dump into json files
 	json.dump(url_list, fo, ensure_ascii=False)
 	json.dump(category, fp, ensure_ascii=False)
 	fp.close()
@@ -285,15 +275,6 @@ def add_keys(sources):
 					os.remove(f)
 					continue
 				jsonfile = io.open(f, "r+", encoding='utf8')
-				#Restore Related Staff
-				# jdict=jsonfile.read()
-				# moredicts=re.match(r'^{.*\"}{.*',jdict)
-				# jsonfile.seek(0)
-				# if moredicts:
-				# 	jsonfile.close()
-				# 	print('restore %s'%f)
-				# 	restore(f)
-				# 	jsonfile = io.open(f, "r+", encoding='utf8')
 				values= json.load(jsonfile)
 				if len(values.items())==5:
 					new_keys={"folder":cont,"words":0}
@@ -307,7 +288,6 @@ def add_keys(sources):
 
 def tags(root,tag_catalogue):
 	os.chdir(root)
-	# tag_catalogue=[]
 	for folder in os.listdir(root):
 		matchobj = re.match(r'.*\.(txt|json)', folder)
 		if matchobj:
